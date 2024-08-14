@@ -158,9 +158,7 @@ export default class SelectBox extends ValueComponent {
 
     const requiredInline = (
       <Text>
-        {!component.label && component.validate && component.validate.required
-          ? "*"
-          : ""}
+        {component.validate && component.validate.required ? "*" : ""}
       </Text>
     );
 

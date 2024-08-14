@@ -44,7 +44,7 @@ FormioComponents.register('content', Content);
 // FormioComponents.register('datagrid', datagrid);
 // FormioComponents.register('editgrid', editgrid);
 FormioComponents.register('datetime', Datetime);
-FormioComponents.register('Date', Date);
+FormioComponents.register('date', Date);
 FormioComponents.register('day', Day);
 // FormioComponents.register('email', email);
 FormioComponents.register('fieldset', Fieldset);

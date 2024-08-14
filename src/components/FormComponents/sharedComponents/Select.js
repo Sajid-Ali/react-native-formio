@@ -20,6 +20,7 @@ export default class SelectComponent extends ValueComponent {
       searchTerm: "",
       hasNextPage: false,
       open: false,
+      value: this.props.component?.data?.values || []
     };
     this.willReceiveProps = this.willReceiveProps.bind(this);
     this.onChangeSelect = this.onChangeSelect.bind(this);
@@ -184,20 +185,14 @@ export default class SelectComponent extends ValueComponent {
     });
 
     const { component } = this.props;
-    console.log("🚀 ~ SelectComponent ~ getElements ~ component:", component);
     const labelText =
       component.label && !component.hideLabel ? component.label : "";
-    console.log("🚀 ~ SelectComponent ~ getElements ~ labelText:", labelText);
     const requiredInline =
       !component.label && component.validate && component.validate.required ? (
         <Icon name="asterisk" />
       ) : (
-        ""
+        "-"
       );
-    console.log(
-      "🚀 ~ SelectComponent ~ getElements ~ requiredInline:",
-      requiredInline
-    );
     const multiMode = component.multiple;
     let values;
     let Element;
@@ -234,7 +229,8 @@ export default class SelectComponent extends ValueComponent {
         />
       );
     } else {
-      values = this.state.value ? this.state.value.item : "";
+      values = this.state.value ? this.state.value : "";
+      console.log("🚀 ~ SelectComponent ~ getElements ~ values:", values)
       Element = (
         <Dropdown
           label={component.placeholder}
